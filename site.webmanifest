@@ -1,0 +1,14 @@
+{
+  "name": "AulaView",
+  "short_name": "AulaView",
+  "description": "Consola do professor para laboratórios de informática em Windows.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0B0F19",
+  "theme_color": "#0B0F19",
+  "lang": "pt-MZ",
+  "icons": [
+    { "src": "/assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-MZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página não encontrada — AulaView</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B0F19">
+<link rel="icon" href="/assets/brand/favicon-32.png" type="image/png">
+<link rel="icon" href="/assets/brand/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/site.css">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("av-theme");
+    if (t === "light" || (!t && matchMedia("(prefers-color-scheme: light)").matches))
+      document.documentElement.classList.add("light");
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<header class="site-header is-stuck">
+  <div class="wrap">
+    <a class="logo" href="/"><img src="/assets/brand/icon.svg" width="36" height="36" alt=""><span>Aula<span class="grad">View</span></span></a>
+  </div>
+</header>
+<main class="section">
+  <div class="wrap" style="max-width:640px">
+    <p class="eyebrow">404</p>
+    <h1>Esta página não está na sala.</h1>
+    <p class="lead">O endereço não existe. Volte à página do AulaView para ver a consola, os requisitos e os instaladores.</p>
+    <p class="hero-actions"><a class="btn btn-primary" href="/">Ir para o início</a></p>
+    <p class="note">This page is not here. <a href="/">Back to AulaView</a>.</p>
+    <p class="note">Desenvolvido por <a href="https://danielpro.dev">Danielpro</a>.</p>
+  </div>
+</main>
+</body>
+</html>

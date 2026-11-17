@@ -3,8 +3,345 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Em breve</title>
-<style>body{font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0;background:#0f172a;color:#e2e8f0}main{text-align:center;padding:2rem}</style>
+<title>AulaView — consola do professor para o laboratório</title>
+<meta name="description" content="O AulaView é a consola do professor para os computadores da sala. Ecrãs ao vivo, controlo remoto, mensagens e ficheiros na rede local, sem nuvem. Windows 10 ou posterior, 64 bits.">
+<meta name="author" content="Daniel Marcos">
+<meta name="theme-color" content="#0B0F19">
+<link rel="canonical" href="https://aulaview.danielpro.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AulaView">
+<meta property="og:title" content="AulaView — consola do professor para o laboratório">
+<meta property="og:description" content="Veja a sala inteira num só ecrã. Consola do professor e agente do aluno para laboratórios de informática em Windows, na rede local.">
+<meta property="og:url" content="https://aulaview.danielpro.dev/">
+<meta property="og:image" content="https://aulaview.danielpro.dev/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AulaView — a sala inteira, num só ecrã.">
+<meta property="og:locale" content="pt_MZ">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AulaView — consola do professor para o laboratório">
+<meta name="twitter:description" content="Ecrãs ao vivo, controlo remoto e ficheiros da turma, na rede local, sem nuvem.">
+<meta name="twitter:image" content="https://aulaview.danielpro.dev/assets/og.png">
+<link rel="icon" href="/assets/brand/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/brand/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/css/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AulaView",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Windows 10, Windows 11, x64",
+  "softwareVersion": "1.3.5",
+  "description": "Consola do professor e agente do aluno para gerir um laboratório de informática em Windows, na rede local.",
+  "url": "https://aulaview.danielpro.dev/",
+  "image": "https://aulaview.danielpro.dev/assets/og.png",
+  "author": { "@type": "Person", "name": "Daniel Marcos", "url": "https://danielpro.dev" }
+}
+</script>
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("av-theme");
+    if (t === "light" || (!t && matchMedia("(prefers-color-scheme: light)").matches))
+      document.documentElement.classList.add("light");
+  } catch (e) {}
+})();
+</script>
 </head>
-<body><main><h1>Em breve</h1><p>Site em construção — Danielpro.</p></main></body>
+<body id="topo">
+<a class="skip" href="#conteudo" data-i18n="skip">Saltar para o conteúdo</a>
+<svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true">
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 7v4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-blank" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M4 19h16M8 9h8"/></symbol>
+  <symbol id="i-message" viewBox="0 0 24 24"><path d="M5 5h14v10H8l-3 3z"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3z"/></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><path d="M3 13l3-8h12l3 8v6H3z"/><path d="M3 13h5a4 4 0 0 0 8 0h5"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h4l2-2h4l2 2h4v10H4z"/><circle cx="12" cy="13" r="3"/></symbol>
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3v8"/><path d="M7 6.2a7 7 0 1 0 10 0"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></symbol>
+  <symbol id="i-checks" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l2.5 2.5L16 9"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v10"/><path d="M8 10l4 4 4-4"/><path d="M5 20h14"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+  <symbol id="i-package" viewBox="0 0 24 24"><path d="M3 8l9-4 9 4-9 4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8"/></symbol>
+  <symbol id="i-present" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M8 10h8"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V6a2 2 0 0 1 2-2h10"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 19c1.2-3.2 3.6-4.8 7-4.8s5.8 1.6 7 4.8"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#topo">
+      <img src="/assets/brand/icon.svg" width="36" height="36" alt="">
+      <span>Aula<span class="grad">View</span></span>
+    </a>
+    <nav class="nav" aria-label="Secções">
+      <a href="#funcionalidades" data-i18n="navFeatures">Funcionalidades</a>
+      <a href="#galeria" data-i18n="navGallery">Galeria</a>
+      <a href="#como-funciona" data-i18n="navHow">Como funciona</a>
+      <a href="#requisitos" data-i18n="navReq">Requisitos</a>
+      <a href="#perguntas" data-i18n="navFaq">Perguntas</a>
+    </nav>
+    <div class="header-actions">
+      <div class="seg" role="group" aria-label="Idioma">
+        <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="true" aria-label="Mudar para o tema claro">
+        <svg class="icon" aria-hidden="true"><use href="#i-sun"></use></svg>
+      </button>
+      <a class="btn btn-primary" href="#transferir"><svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg><span data-i18n="ctaDownload">Transferir</span></a>
+      <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-controls="menu-movel" data-i18n-aria="menuOpen" aria-label="Abrir menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="mobile-nav" id="menu-movel" data-mobile-nav>
+  <a href="#funcionalidades" data-i18n="navFeatures">Funcionalidades</a>
+  <a href="#galeria" data-i18n="navGallery">Galeria</a>
+  <a href="#como-funciona" data-i18n="navHow">Como funciona</a>
+  <a href="#requisitos" data-i18n="navReq">Requisitos</a>
+  <a href="#transferir" data-i18n="navDownload">Transferir</a>
+  <a href="#perguntas" data-i18n="navFaq">Perguntas</a>
+</nav>
+
+<main id="conteudo">
+  <section class="hero">
+    <img class="hero-pin" src="/assets/brand/symbol.svg" alt="">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow" data-i18n="heroKicker">Laboratório de informática · Windows</p>
+        <h1><span data-i18n="heroTitleA">A sala inteira,</span><br><span class="grad" data-i18n="heroTitleB">num só ecrã.</span></h1>
+        <p class="lead" data-i18n="heroLead">O AulaView é a consola do professor para os computadores da sala. Veja os ecrãs ao vivo, assuma o controlo de um PC, cubra o ecrã da turma e troque ficheiros — o servidor fica no seu computador, na rede local, sem nuvem.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#transferir"><svg class="icon" aria-hidden="true"><use href="#i-download"></use></svg><span data-i18n="ctaDownload">Transferir</span></a>
+          <a class="btn btn-ghost" href="#galeria"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg><span data-i18n="ctaSee">Ver a consola</span></a>
+        </div>
+        <ul class="facts">
+          <li data-i18n="factWin">Windows 10 ou posterior, 64 bits</li>
+          <li data-i18n="factLocal">Rede local, sem nuvem</li>
+          <li data-i18n="factPort">Porta TCP 19544</li>
+        </ul>
+      </div>
+      <figure class="frame">
+        <div class="frame-bar"><img src="/assets/brand/icon.svg" alt=""><span>AulaView — Sala de Informática</span></div>
+        <img class="shot" data-shot width="1440" height="900" data-dark="/assets/screens/sala-escuro.png" data-light="/assets/screens/sala-claro.png" src="/assets/screens/sala-escuro.png" data-i18n-alt="g1" alt="Visão da sala, tema escuro">
+        <figcaption data-i18n="heroCaption">Consola do professor, com a grelha da sala. Interface reconstruída a partir do programa real.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="command-strip">
+    <div class="wrap">
+      <div class="strip" aria-hidden="true">
+        <span><svg class="icon"><use href="#i-monitor"></use></svg><span data-i18n="stripView">Ver ecrã</span></span>
+        <span><svg class="icon"><use href="#i-mouse"></use></svg><span data-i18n="stripControl">Assumir controlo</span></span>
+        <span><svg class="icon"><use href="#i-lock"></use></svg><span data-i18n="stripLock">Bloquear</span></span>
+        <span><svg class="icon"><use href="#i-blank"></use></svg><span data-i18n="stripBlank">Ecrã em branco</span></span>
+        <span><svg class="icon"><use href="#i-message"></use></svg><span data-i18n="stripMsg">Mensagem</span></span>
+        <span><svg class="icon"><use href="#i-folder"></use></svg><span data-i18n="stripFiles">Ficheiros</span></span>
+        <span><svg class="icon"><use href="#i-camera"></use></svg><span data-i18n="stripShot">Capturar</span></span>
+        <span><svg class="icon"><use href="#i-power"></use></svg><span data-i18n="stripPower">Energia</span></span>
+        <span><svg class="icon"><use href="#i-search"></use></svg><span data-i18n="stripSearch">Procurar PCs</span></span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="funcionalidades">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="featuresKicker">O que o professor faz da consola</p>
+        <h2 data-i18n="featuresTitle">A aula, sem andar entre as secretárias.</h2>
+        <p data-i18n="featuresLead">Feito para uma sala de informática em Windows: a consola no PC do professor e um agente em cada computador do aluno.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-grid"></use></svg></div><h3 data-i18n="fGridT">Grelha de ecrãs ao vivo</h3><p data-i18n="fGrid">Miniaturas da sala, com pesquisa, filtros e o estado de cada PC. A ordem dos cartões fica guardada.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-mouse"></use></svg></div><h3 data-i18n="fControlT">Controlo remoto</h3><p data-i18n="fControl">Abra um ecrã e assuma o rato e o teclado. Se o PC se religar durante o controlo, a sessão retoma.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-lock"></use></svg></div><h3 data-i18n="fLockT">Bloquear e desbloquear</h3><p data-i18n="fLock">Cubra todos os monitores e bloqueie o teclado e o rato, com uma mensagem sua. Desbloqueie quando a turma puder continuar. O Windows mantém Ctrl+Alt+Del.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-blank"></use></svg></div><h3 data-i18n="fBlankT">Ecrã em branco</h3><p data-i18n="fBlank">O ambiente de trabalho desaparece. O aluno vê a mensagem do professor — por exemplo «Olhe para o professor» — em vez do que estava aberto.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-message"></use></svg></div><h3 data-i18n="fMsgT">Mensagens aos alunos</h3><p data-i18n="fMsg">Envie um aviso a um computador ou a vários. A janela de conversa abre à frente e o aluno pode responder.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-folder"></use></svg></div><h3 data-i18n="fFilesT">Enviar e recolher ficheiros</h3><p data-i18n="fFiles">Distribua materiais e recolha trabalhos — Word, PDF, imagens e outros tipos — com verificação SHA-256. Cada ficheiro até 64 MB.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-inbox"></use></svg></div><h3 data-i18n="fUploadT">Janela de envio do aluno</h3><p data-i18n="fUpload">Peça a entrega: a janela «Entregar trabalho» abre nos PCs escolhidos. Os ficheiros ficam agrupados por computador.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-camera"></use></svg></div><h3 data-i18n="fShotT">Capturas de ecrã</h3><p data-i18n="fShot">Guarde uma imagem do ecrã de um aluno ou de vários, para consultar mais tarde na consola.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-power"></use></svg></div><h3 data-i18n="fPowerT">Ligar e desligar</h3><p data-i18n="fPower">Ligue computadores com Wake-on-LAN, ou desligue, reinicie, suspenda e termine a sessão nos PCs selecionados.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-search"></use></svg></div><h3 data-i18n="fFindT">Procurar e Adicionar</h3><p data-i18n="fFind">O agente anuncia-se na rede. Em Procurar computadores, marque os PCs desta sala e clique em Adicionar.</p></article>
+        <article class="card reveal"><div class="card-icon"><svg class="icon"><use href="#i-checks"></use></svg></div><h3 data-i18n="fManyT">Seleção de vários PCs</h3><p data-i18n="fMany">Marque vários cartões. As ações da barra aplicam-se à seleção — ou a todos os PCs online, quando nada está marcado.</p></article>
+      </div>
+
+      <div class="section-head reveal" style="margin-top:56px">
+        <p class="eyebrow" data-i18n="soonKicker">A caminho</p>
+        <h2 data-i18n="soonTitle">Em breve</h2>
+        <p data-i18n="soonLead">Duas funções estão a ser construídas. Ainda não fazem parte do instalador 1.3.5.</p>
+      </div>
+      <div class="soon-grid">
+        <article class="soon reveal">
+          <div class="badge"><svg class="icon"><use href="#i-clock"></use></svg><span data-i18n="soonBadge">Em breve</span></div>
+          <h3 data-i18n="soonInstallT">Instalar e remover programas</h3>
+          <p data-i18n="soonInstall">Instalar e desinstalar aplicações à distância nos PCs da sala, incluindo forçar a remoção.</p>
+        </article>
+        <article class="soon reveal">
+          <div class="badge"><svg class="icon"><use href="#i-clock"></use></svg><span data-i18n="soonBadge">Em breve</span></div>
+          <h3 data-i18n="soonPresentT">Modo Apresentar</h3>
+          <p data-i18n="soonPresent">Os diapositivos do professor passam a estar sincronizados ao vivo nos ecrãs dos alunos.</p>
+        </article>
+      </div>
+      <p class="note" data-i18n="soonNote">A partilha do ecrã do professor já existe na consola. O modo Apresentar, com diapositivos sincronizados, é que ainda está a ser feito.</p>
+    </div>
+  </section>
+
+  <section class="section" id="galeria" style="background:var(--bg-2)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="galleryKicker">A consola</p>
+        <h2 data-i18n="galleryTitle">O mesmo programa, em claro e em escuro.</h2>
+        <p data-i18n="galleryLead">Estas imagens seguem a interface real da consola AulaView 1.3.5: cores, tipo de letra, barra de ações e a janela Procurar computadores. Os computadores da grelha são de exemplo.</p>
+      </div>
+      <div class="gallery">
+        <button class="shot-btn reveal" type="button" data-zoom>
+          <figure class="frame">
+            <img src="/assets/screens/sala-escuro.png" width="1440" height="900" data-i18n-alt="g1" alt="Visão da sala, tema escuro">
+            <figcaption data-i18n="g1">Visão da sala, tema escuro</figcaption>
+          </figure>
+        </button>
+        <button class="shot-btn reveal" type="button" data-zoom>
+          <figure class="frame">
+            <img src="/assets/screens/sala-claro.png" width="1440" height="900" data-i18n-alt="g2" alt="Visão da sala, tema claro">
+            <figcaption data-i18n="g2">Visão da sala, tema claro</figcaption>
+          </figure>
+        </button>
+        <button class="shot-btn reveal" type="button" data-zoom>
+          <figure class="frame">
+            <img src="/assets/screens/procurar.png" width="1440" height="900" data-i18n-alt="g3" alt="Procurar computadores e Adicionar">
+            <figcaption data-i18n="g3">Procurar computadores e Adicionar</figcaption>
+          </figure>
+        </button>
+        <button class="shot-btn reveal" type="button" data-zoom>
+          <figure class="frame">
+            <img src="/assets/screens/controlo.png" width="1440" height="900" data-i18n-alt="g4" alt="Controlo remoto de um PC">
+            <figcaption data-i18n="g4">Controlo remoto de um PC</figcaption>
+          </figure>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="howKicker">Três passos</p>
+        <h2 data-i18n="howTitle">Como a sala fica ligada.</h2>
+        <p data-i18n="howLead">Não há servidor na nuvem. O PC do professor é o servidor, e a consola deve ficar aberta durante a aula.</p>
+      </div>
+      <div class="steps">
+        <article class="step reveal"><div class="num">1</div><h3 data-i18n="s1t">Agente em cada PC da sala</h3><p data-i18n="s1">Execute o instalador do agente como administrador. No fim, o serviço fica em execução.</p></article>
+        <article class="step reveal"><div class="num">2</div><h3 data-i18n="s2t">Consola no PC do professor</h3><p data-i18n="s2">Instale a consola e abra o AulaView. A palavra-passe, as salas e os computadores já adicionados mantêm-se numa atualização.</p></article>
+        <article class="step reveal"><div class="num">3</div><h3 data-i18n="s3t">Procurar e Adicionar</h3><p data-i18n="s3">Clique em Procurar computadores, marque os PCs desta sala e clique em Adicionar. Cada computador entra na grelha depois de ser aceite.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="requisitos" style="background:var(--bg-2)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="reqKicker">Windows</p>
+        <h2 data-i18n="reqTitle">O que a sala precisa.</h2>
+      </div>
+      <div class="req">
+        <article class="reveal">
+          <h3 data-i18n="reqTeacher">PC do professor</h3>
+          <ul>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r1">Windows 10 ou posterior, 64 bits (x64).</span></li>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r2">A consola AulaView instalada. Ela própria é o servidor da sala.</span></li>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r3">A consola aberta durante a aula. Trancá-la não desliga o servidor.</span></li>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r4">Firewall do Windows a permitir o AulaView na porta TCP 19544.</span></li>
+          </ul>
+        </article>
+        <article class="reveal">
+          <h3 data-i18n="reqStudents">PCs dos alunos</h3>
+          <ul>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r5">Windows 10 ou posterior, 64 bits, em cada computador.</span></li>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r6">Agente AulaView instalado como administrador.</span></li>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r7">A mesma rede local que o PC do professor.</span></li>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r8">Wake-on-LAN na BIOS e na placa de rede, se quiser ligar os PCs à distância.</span></li>
+            <li><svg class="icon"><use href="#i-check"></use></svg><span data-i18n="r9">Conta de aluno sem privilégios de administrador — é o que a documentação da sala recomenda.</span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="transferir">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="dlKicker">Instaladores</p>
+        <h2 data-i18n="dlTitle">Transferir o AulaView</h2>
+        <p data-i18n="dlLead">Dois ficheiros: a consola do professor e o agente do aluno. Os endereços vêm de downloads.json. Se o ficheiro ainda não estiver publicado neste site, o botão fica em «disponível em breve».</p>
+      </div>
+      <div class="downloads" data-downloads>
+        <article class="dl">
+          <p class="meta-line" data-i18n="dlCheck">A verificar o ficheiro…</p>
+        </article>
+      </div>
+      <noscript>
+        <p class="note">AulaView_1.3.5_x64-setup.exe · AulaView-Agent-Setup-1.3.5.exe — disponível em breve, quando os ficheiros estiverem em /downloads/.</p>
+      </noscript>
+    </div>
+  </section>
+
+  <section class="section" id="perguntas" style="background:var(--bg-2)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="faqKicker">Perguntas</p>
+        <h2 data-i18n="faqTitle">Antes de instalar.</h2>
+      </div>
+      <div class="faq">
+        <details class="reveal"><summary data-i18n="q1">Preciso de internet ou de um servidor na nuvem?</summary><p data-i18n="a1">Não. O PC do professor é o servidor. Os computadores da sala falam com a consola na rede local, na porta TCP 19544. Não há PHP, base de dados nem serviço na nuvem.</p></details>
+        <details class="reveal"><summary data-i18n="q2">Que Windows é necessário?</summary><p data-i18n="a2">Windows 10 ou posterior, de 64 bits, tanto no PC do professor como nos PCs dos alunos. O instalador do agente recusa um Windows de 32 bits ou anterior ao Windows 10.</p></details>
+        <details class="reveal"><summary data-i18n="q3">Para quantos computadores serve?</summary><p data-i18n="a3">Foi feito para uma sala de informática. A consola acompanha uma turma na casa dos 22 PCs, e a versão 1.3.5 foi sujeita a um teste de carga com 25 computadores simulados.</p></details>
+        <details class="reveal"><summary data-i18n="q4">Os instaladores têm assinatura digital?</summary><p data-i18n="a4">Ainda não. O SmartScreen do Windows pode mostrar «O Windows protegeu o seu PC». Em Mais informações pode escolher Executar mesmo assim. Confira o SHA-256 publicado nesta página.</p></details>
+        <details class="reveal"><summary data-i18n="q5">O botão diz «disponível em breve». O que falta?</summary><p data-i18n="a5">O ficheiro ainda não está em /downloads/ neste site. Os instaladores são colocados no servidor à parte. Quando o ficheiro responder, o botão passa a transferir e mostra o tamanho.</p></details>
+        <details class="reveal"><summary data-i18n="q6">O aluno consegue sair com Ctrl+Alt+Del?</summary><p data-i18n="a6">Sim. Nenhum programa normal consegue bloquear Ctrl+Alt+Del. O bloqueio cobre o ecrã e o teclado e o rato, e o Windows mantém essa combinação.</p></details>
+        <details class="reveal"><summary data-i18n="q7">Onde ficam os trabalhos dos alunos?</summary><p data-i18n="a7">Na consola, os envios pela janela de entrega ficam agrupados por PC. A recolha e o envio verificam o SHA-256. Cada ficheiro pode ter no máximo 64 MB.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="#topo"><img src="/assets/brand/icon.svg" width="32" height="32" alt=""><span>Aula<span class="grad">View</span></span></a>
+      <p><a class="credit" href="https://danielpro.dev" data-i18n="footCredit">Desenvolvido por Danielpro</a></p>
+      <p data-i18n="footRights">© 2026 Daniel Marcos. AulaView.</p>
+    </div>
+    <nav aria-label="Rodapé">
+      <a href="#funcionalidades" data-i18n="navFeatures">Funcionalidades</a>
+      <a href="#transferir" data-i18n="navDownload">Transferir</a>
+      <a href="#perguntas" data-i18n="navFaq">Perguntas</a>
+      <a href="#topo" data-i18n="footTop">Voltar ao topo</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Imagem">
+  <button class="icon-btn" type="button" data-i18n-aria="close" aria-label="Fechar"><svg class="icon"><use href="#i-close"></use></svg></button>
+  <figure>
+    <img data-lightbox-img alt="">
+    <figcaption data-lightbox-cap></figcaption>
+  </figure>
+</div>
+<script src="/js/site.js"></script>
+</body>
 </html>
