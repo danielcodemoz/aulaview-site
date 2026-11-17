@@ -6,6 +6,7 @@
     pt: {
       skip: "Saltar para o conteúdo",
       navFeatures: "Funcionalidades",
+      navOrigin: "Origem",
       navGallery: "Galeria",
       navHow: "Como funciona",
       navReq: "Requisitos",
@@ -97,9 +98,40 @@
       r7: "A mesma rede local que o PC do professor.",
       r8: "Wake-on-LAN na BIOS e na placa de rede, se quiser ligar os PCs à distância.",
       r9: "Conta de aluno sem privilégios de administrador — é o que a documentação da sala recomenda.",
-      dlKicker: "Instaladores",
+      dlKicker: "Versão 1.4.0",
       dlTitle: "Transferir o AulaView",
-      dlLead: "Versão 1.4.0: a consola do professor e o agente do aluno. O nome, o tamanho e o SHA-256 vêm de downloads.json.",
+      dlLead: "Consola no computador do professor. Agente em cada computador da sala.",
+      slidePrev: "Anterior",
+      slideNext: "Seguinte",
+      slideDots: "Diapositivos",
+      slViewT: "Ver ecrã",
+      slView: "Miniaturas ao vivo de cada computador da sala, com o estado e o que está aberto.",
+      slControlT: "Assumir controlo",
+      slControl: "Abra um ecrã e use o rato e o teclado desse computador.",
+      slLockT: "Bloquear",
+      slLock: "Cubra o ecrã e bloqueie o rato e o teclado, com uma mensagem sua.",
+      slMsgT: "Mensagem",
+      slMsg: "Envie um aviso aos PCs selecionados. A janela abre à frente e o aluno pode responder.",
+      slFilesT: "Ficheiros",
+      slFiles: "Envie materiais e recolha trabalhos, com verificação SHA-256.",
+      slShotT: "Capturar",
+      slShot: "Guarde uma imagem do ecrã de um aluno ou de vários.",
+      slPowerT: "Energia",
+      slPower: "Ligue com Wake-on-LAN, ou desligue, reinicie, suspenda e termine a sessão.",
+      slInstallT: "Instalar e desinstalar",
+      slInstall: "Nos PCs selecionados, instale um programa ou desinstale-o — de forma normal ou forçada.",
+      slPresentT: "Modo Apresentar",
+      slPresent: "Os diapositivos, em PDF ou PPTX, ficam sincronizados ao vivo nos ecrãs dos alunos.",
+      slThemeT: "Claro e escuro",
+      slTheme: "A mesma consola, no tema claro ou no tema escuro.",
+      originKicker: "A origem do nome",
+      originKickerLine: "Ver a aula inteira.",
+      originBody: "Aula vem do latim aula — pátio, corte, palácio — e o latim trouxe a palavra do grego αὐλή, o pátio aberto. Com o tempo passou a nomear a sala e, em português, a própria lição. View vem do francês antigo veue, «o que se vê», do verbo veoir, do latim vidēre, «ver». AulaView é ver a aula.",
+      tl1: "pátio",
+      tl2: "corte",
+      tl3: "lição",
+      tl4: "ver a aula",
+      originSources: "Fontes: Wiktionary, com Infopédia e Priberam; Ciberdúvidas da Língua Portuguesa; Etymonline.",
       dlConsole: "Consola do professor",
       dlAgent: "Agente do aluno",
       dlConsoleHint: "Instalar no PC do professor, por cima de uma versão anterior se já existir.",
@@ -136,6 +168,7 @@
     en: {
       skip: "Skip to content",
       navFeatures: "Features",
+      navOrigin: "The name",
       navGallery: "Gallery",
       navHow: "How it works",
       navReq: "Requirements",
@@ -227,9 +260,40 @@
       r7: "The same local network as the teacher PC.",
       r8: "Wake-on-LAN in the BIOS and on the network adapter, if you want to power PCs on remotely.",
       r9: "A student account without administrator rights — that is what the lab notes recommend.",
-      dlKicker: "Installers",
+      dlKicker: "Version 1.4.0",
       dlTitle: "Download AulaView",
-      dlLead: "Version 1.4.0: the teacher console and the student agent. The name, size and SHA-256 come from downloads.json.",
+      dlLead: "The console on the teacher’s computer. The agent on every computer in the room.",
+      slidePrev: "Previous",
+      slideNext: "Next",
+      slideDots: "Slides",
+      slViewT: "View screen",
+      slView: "Live thumbnails of every computer in the room, with its status and what is open.",
+      slControlT: "Take control",
+      slControl: "Open a screen and use that computer’s mouse and keyboard.",
+      slLockT: "Lock",
+      slLock: "Cover the screen and block the mouse and keyboard, with a message from you.",
+      slMsgT: "Message",
+      slMsg: "Send a note to the selected PCs. The window comes to the front, and the student can reply.",
+      slFilesT: "Files",
+      slFiles: "Send materials and collect work, with a SHA-256 check.",
+      slShotT: "Screenshot",
+      slShot: "Save a picture of one student’s screen, or of several.",
+      slPowerT: "Power",
+      slPower: "Wake computers with Wake-on-LAN, or shut down, restart, sleep and log off.",
+      slInstallT: "Install and uninstall",
+      slInstall: "On the selected PCs, install a program or uninstall it — the normal way, or forced.",
+      slPresentT: "Present mode",
+      slPresent: "Slides, as PDF or PPTX, stay synced live on the student screens.",
+      slThemeT: "Light and dark",
+      slTheme: "The same console, in the light theme or the dark theme.",
+      originKicker: "Where the name comes from",
+      originKickerLine: "Seeing the whole class.",
+      originBody: "Aula comes from Latin aula — a courtyard, a court, a palace — and Latin took the word from Greek αὐλή, the open court. In time it named the hall and, in Portuguese, the lesson itself. View comes from Old French veue, “what is seen”, from the verb veoir, from Latin vidēre, “to see”. AulaView is seeing the class.",
+      tl1: "courtyard",
+      tl2: "court",
+      tl3: "lesson",
+      tl4: "see the class",
+      originSources: "Sources: Wiktionary, with Infopédia and Priberam; Ciberdúvidas da Língua Portuguesa; Etymonline.",
       dlConsole: "Teacher console",
       dlAgent: "Student agent",
       dlConsoleHint: "Install on the teacher PC, over an older version if one is already there.",
@@ -397,6 +461,50 @@
     });
   });
 
+  const slider = document.querySelector("[data-slider]");
+  const slideFigs = [...document.querySelectorAll("[data-slide]")];
+  const slideCopies = [...document.querySelectorAll(".slide-copy")];
+  const dots = [...document.querySelectorAll("[data-dot]")];
+  let slideIndex = 0;
+  let slideTimer = 0;
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function showSlide(index) {
+    if (!slideFigs.length) return;
+    slideIndex = (index + slideFigs.length) % slideFigs.length;
+    slideFigs.forEach((fig, n) => {
+      const on = n === slideIndex;
+      fig.classList.toggle("is-on", on);
+      fig.setAttribute("aria-hidden", on ? "false" : "true");
+    });
+    slideCopies.forEach((copy, n) => copy.classList.toggle("is-on", n === slideIndex));
+    dots.forEach((dot, n) => dot.setAttribute("aria-selected", n === slideIndex ? "true" : "false"));
+  }
+  function stopSlides() { clearInterval(slideTimer); }
+  function playSlides() {
+    if (reduceMotion || slideFigs.length < 2) return;
+    stopSlides();
+    slideTimer = setInterval(() => showSlide(slideIndex + 1), 3000);
+  }
+  document.querySelector("[data-slide-next]")?.addEventListener("click", () => { showSlide(slideIndex + 1); playSlides(); });
+  document.querySelector("[data-slide-prev]")?.addEventListener("click", () => { showSlide(slideIndex - 1); playSlides(); });
+  dots.forEach((dot) => dot.addEventListener("click", () => { showSlide(Number(dot.dataset.dot)); playSlides(); }));
+  slider?.addEventListener("mouseenter", stopSlides);
+  slider?.addEventListener("mouseleave", playSlides);
+  slider?.addEventListener("focusin", stopSlides);
+  slider?.addEventListener("focusout", (event) => { if (!slider.contains(event.relatedTarget)) playSlides(); });
+  let swipeX = null;
+  slider?.addEventListener("pointerdown", (event) => { swipeX = event.clientX; });
+  slider?.addEventListener("pointerup", (event) => {
+    if (swipeX == null) return;
+    const dx = event.clientX - swipeX;
+    swipeX = null;
+    if (Math.abs(dx) < 48) return;
+    showSlide(slideIndex + (dx < 0 ? 1 : -1));
+    playSlides();
+  });
+  showSlide(0);
+  playSlides();
+
   const box = document.querySelector("[data-lightbox]");
   const boxImg = document.querySelector("[data-lightbox-img]");
   const boxCap = document.querySelector("[data-lightbox-cap]");
@@ -472,13 +580,12 @@
       const action = ready
         ? `<a class="btn btn-primary" href="${file.url}" download>${icon("download")}<span>${t("dlGet")}</span></a>`
         : `<button class="btn btn-soon" type="button" disabled>${icon("clock")}<span>${file._ready === false ? t("dlSoon") : t("dlCheck")}</span></button>`;
-      return `<article class="dl">
+      const kind = file.id === "agent" ? "agent" : "console";
+      return `<article class="dl dl-${kind}">
+        <div class="dl-art">${icon(kind === "agent" ? "students" : "teacher")}</div>
         <header>
-          <div>
-            <p class="eyebrow">${t("dlVersion")} ${file.version || data.version || ""}</p>
-            <h3>${t(label.title)}</h3>
-          </div>
-          ${icon(file.id === "agent" ? "users" : "monitor")}
+          <p class="eyebrow">${t("dlVersion")} ${file.version || data.version || ""}</p>
+          <h3>${t(label.title)}</h3>
         </header>
         <p class="meta-line">${t(label.hint)}</p>
         <p class="file">${file.filename}</p>
