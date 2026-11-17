@@ -1,13 +1,10 @@
-# site-template — sites novos em *.danielpro.dev
+# AulaView
 
-Modelo para o Dots (Codex) criar e publicar um site estático novo sozinho.
+Site estático de apresentação do [AulaView](https://aulaview.danielpro.dev), a consola do professor para laboratórios de informática em Windows.
 
-## 3 passos do Daniel
-1. **GitHub → New repository → Repository template: `danielcodemoz/site-template`**, escolhe um nome e deixa **Public**.
-2. **Codex → Environments → Create environment** para esse repositório.
-3. **Escreve a tarefa** no Codex (ex.: "Constrói o site de X e publica em x.danielpro.dev").
+- `index.html` — página principal (português de Moçambique e inglês)
+- `404.html` — página em falta
+- `downloads.json` — versão, nomes, SHA-256 e endereços dos instaladores
+- Os ficheiros em `/downloads/` são publicados à parte e não entram neste repositório
 
-O Dots lê o `AGENTS.md`, põe o subdomínio em `danielpro-site.json`, abre o PR num ramo `codex/...`,
-o workflow faz o merge e o servidor publica em poucos minutos com HTTPS.
-
-Para desligar a criação automática no servidor: `systemctl disable --now novo-site-auto.timer`.
+Desenvolvido por [Danielpro](https://danielpro.dev).
