@@ -1,21 +1,21 @@
 {
-  "version": "1.3.5",
+  "version": "1.4.0",
   "files": [
     {
       "id": "console",
-      "version": "1.3.5",
-      "filename": "AulaView_1.3.5_x64-setup.exe",
-      "size": null,
-      "sha256": "66577142812bef5dc600f67baa078a0be20c9c8815a9a781af8b75241838081b",
-      "url": "/downloads/AulaView_1.3.5_x64-setup.exe"
+      "version": "1.4.0",
+      "filename": "AulaView_1.4.0_x64-setup.exe",
+      "size": 7788810,
+      "sha256": "dd253840a2521550daaf02bcb2da2ffca4b5ad6caa7a258214df39fbae04532a",
+      "url": "/downloads/AulaView_1.4.0_x64-setup.exe"
     },
     {
       "id": "agent",
-      "version": "1.3.5",
-      "filename": "AulaView-Agent-Setup-1.3.5.exe",
-      "size": null,
-      "sha256": "1105e5768877d4199ab150ff29d581690d3079d0d73da8f59fa262ddaf9fcf63",
-      "url": "/downloads/AulaView-Agent-Setup-1.3.5.exe"
+      "version": "1.4.0",
+      "filename": "AulaView-Agent-Setup-1.4.0.exe",
+      "size": 5329690,
+      "sha256": "bd91a89e3869d712c5dd2a95c204628d3f49a5a4799dfae1920b0ec82c84951d",
+      "url": "/downloads/AulaView-Agent-Setup-1.4.0.exe"
     }
   ]
 }
