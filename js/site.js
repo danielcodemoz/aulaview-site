@@ -71,6 +71,8 @@
       galleryKicker: "A consola",
       galleryTitle: "O mesmo programa, em claro e em escuro.",
       galleryLead: "Estas imagens seguem a interface real da consola AulaView 1.3.5: cores, tipo de letra, barra de ações e a janela Procurar computadores. Os computadores da grelha são de exemplo.",
+      galleryTabs: "Vistas da consola",
+      zoomHint: "Clique para ampliar",
       g1: "Visão da sala, tema escuro",
       g2: "Visão da sala, tema claro",
       g3: "Procurar computadores e Adicionar",
@@ -202,6 +204,8 @@
       galleryKicker: "The console",
       galleryTitle: "The same program, in light and in dark.",
       galleryLead: "These pictures follow the real AulaView 1.3.5 console: colours, type, action bar and the Search for computers window. The computers in the grid are examples.",
+      galleryTabs: "Console views",
+      zoomHint: "Click to enlarge",
       g1: "Classroom view, dark theme",
       g2: "Classroom view, light theme",
       g3: "Search for computers and Add",
@@ -322,7 +326,8 @@
       if (next && shot.getAttribute("src") !== next) shot.src = next;
     }
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "light" ? "#f7f8fa" : "#0b0f19");
+    if (meta) meta.setAttribute("content", theme === "light" ? "#f7f8fa" : "#0b0d0f");
+    syncShot();
   }
 
   document.querySelectorAll("[data-lang]").forEach((btn) => {
@@ -365,6 +370,38 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+  const shotTabs = [...document.querySelectorAll("[data-shot-tab]")];
+  function syncShot(tab) {
+    const current = tab || shotTabs.find((item) => item.getAttribute("aria-selected") === "true") || shotTabs[0];
+    if (!current) return;
+    shotTabs.forEach((item) => {
+      const on = item === current;
+      item.setAttribute("aria-selected", on ? "true" : "false");
+      item.tabIndex = on ? 0 : -1;
+    });
+    const img = document.querySelector("#gallery-shot");
+    if (img) {
+      if (img.getAttribute("src") !== current.dataset.src) img.src = current.dataset.src;
+      img.dataset.i18nAlt = current.dataset.i18n;
+      img.alt = t(current.dataset.i18n);
+    }
+    const cap = document.querySelector("[data-gallery-cap]");
+    if (cap) {
+      cap.dataset.i18n = current.dataset.i18n;
+      cap.textContent = t(current.dataset.i18n);
+    }
+  }
+  shotTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => syncShot(tab));
+    tab.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+      event.preventDefault();
+      const next = event.key === "ArrowRight" ? (index + 1) % shotTabs.length : (index - 1 + shotTabs.length) % shotTabs.length;
+      syncShot(shotTabs[next]);
+      shotTabs[next].focus();
+    });
+  });
 
   const box = document.querySelector("[data-lightbox]");
   const boxImg = document.querySelector("[data-lightbox-img]");
