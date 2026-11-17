@@ -4,8 +4,8 @@
   "description": "Consola do professor para laboratórios de informática em Windows.",
   "start_url": "/",
   "display": "browser",
-  "background_color": "#0B0F19",
-  "theme_color": "#0B0F19",
+  "background_color": "#0b0d0f",
+  "theme_color": "#0b0d0f",
   "lang": "pt-MZ",
   "icons": [
     { "src": "/assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png" },

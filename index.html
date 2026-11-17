@@ -6,7 +6,7 @@
 <title>AulaView — consola do professor para o laboratório</title>
 <meta name="description" content="O AulaView é a consola do professor para os computadores da sala. Ecrãs ao vivo, controlo remoto, mensagens e ficheiros na rede local, sem nuvem. Windows 10 ou posterior, 64 bits.">
 <meta name="author" content="Daniel Marcos">
-<meta name="theme-color" content="#0B0F19">
+<meta name="theme-color" content="#0b0d0f">
 <link rel="canonical" href="https://aulaview.danielpro.dev/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AulaView">
@@ -120,8 +120,8 @@
 <main id="conteudo">
   <section class="hero">
     <img class="hero-pin" src="/assets/brand/symbol.svg" alt="">
-    <div class="wrap hero-grid">
-      <div>
+    <div class="wrap">
+      <div class="hero-copy">
         <p class="eyebrow" data-i18n="heroKicker">Laboratório de informática · Windows</p>
         <h1><span data-i18n="heroTitleA">A sala inteira,</span><br><span class="grad" data-i18n="heroTitleB">num só ecrã.</span></h1>
         <p class="lead" data-i18n="heroLead">O AulaView é a consola do professor para os computadores da sala. Veja os ecrãs ao vivo, assuma o controlo de um PC, cubra o ecrã da turma e troque ficheiros — o servidor fica no seu computador, na rede local, sem nuvem.</p>
@@ -135,9 +135,9 @@
           <li data-i18n="factPort">Porta TCP 19544</li>
         </ul>
       </div>
-      <figure class="frame">
+      <figure class="frame hero-frame">
         <div class="frame-bar"><img src="/assets/brand/icon.svg" alt=""><span>AulaView — Sala de Informática</span></div>
-        <img class="shot" data-shot width="1440" height="900" data-dark="/assets/screens/sala-escuro.png" data-light="/assets/screens/sala-claro.png" src="/assets/screens/sala-escuro.png" data-i18n-alt="g1" alt="Visão da sala, tema escuro">
+        <img class="shot" data-shot width="2560" height="1600" data-dark="/assets/screens/sala-escuro.png" data-light="/assets/screens/sala-claro.png" src="/assets/screens/sala-escuro.png" data-i18n-alt="g1" alt="Visão da sala, tema escuro">
         <figcaption data-i18n="heroCaption">Consola do professor, com a grelha da sala. Interface reconstruída a partir do programa real.</figcaption>
       </figure>
     </div>
@@ -201,36 +201,24 @@
     </div>
   </section>
 
-  <section class="section" id="galeria" style="background:var(--bg-2)">
+  <section class="section" id="galeria">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="galleryKicker">A consola</p>
         <h2 data-i18n="galleryTitle">O mesmo programa, em claro e em escuro.</h2>
         <p data-i18n="galleryLead">Estas imagens seguem a interface real da consola AulaView 1.3.5: cores, tipo de letra, barra de ações e a janela Procurar computadores. Os computadores da grelha são de exemplo.</p>
       </div>
-      <div class="gallery">
-        <button class="shot-btn reveal" type="button" data-zoom>
+      <div class="viewer reveal" data-viewer>
+        <div class="viewer-tabs" role="tablist" data-i18n-aria="galleryTabs" aria-label="Vistas da consola">
+          <button type="button" role="tab" data-shot-tab data-src="/assets/screens/sala-escuro.png" data-i18n="g1" aria-selected="true">Visão da sala, tema escuro</button>
+          <button type="button" role="tab" data-shot-tab data-src="/assets/screens/sala-claro.png" data-i18n="g2" aria-selected="false">Visão da sala, tema claro</button>
+          <button type="button" role="tab" data-shot-tab data-src="/assets/screens/procurar.png" data-i18n="g3" aria-selected="false">Procurar computadores e Adicionar</button>
+          <button type="button" role="tab" data-shot-tab data-src="/assets/screens/controlo.png" data-i18n="g4" aria-selected="false">Controlo remoto de um PC</button>
+        </div>
+        <button class="shot-btn" type="button" data-zoom>
           <figure class="frame">
-            <img src="/assets/screens/sala-escuro.png" width="1440" height="900" data-i18n-alt="g1" alt="Visão da sala, tema escuro">
-            <figcaption data-i18n="g1">Visão da sala, tema escuro</figcaption>
-          </figure>
-        </button>
-        <button class="shot-btn reveal" type="button" data-zoom>
-          <figure class="frame">
-            <img src="/assets/screens/sala-claro.png" width="1440" height="900" data-i18n-alt="g2" alt="Visão da sala, tema claro">
-            <figcaption data-i18n="g2">Visão da sala, tema claro</figcaption>
-          </figure>
-        </button>
-        <button class="shot-btn reveal" type="button" data-zoom>
-          <figure class="frame">
-            <img src="/assets/screens/procurar.png" width="1440" height="900" data-i18n-alt="g3" alt="Procurar computadores e Adicionar">
-            <figcaption data-i18n="g3">Procurar computadores e Adicionar</figcaption>
-          </figure>
-        </button>
-        <button class="shot-btn reveal" type="button" data-zoom>
-          <figure class="frame">
-            <img src="/assets/screens/controlo.png" width="1440" height="900" data-i18n-alt="g4" alt="Controlo remoto de um PC">
-            <figcaption data-i18n="g4">Controlo remoto de um PC</figcaption>
+            <img class="slide" id="gallery-shot" width="2560" height="1600" src="/assets/screens/sala-escuro.png" data-i18n-alt="g1" alt="Visão da sala, tema escuro">
+            <figcaption><span data-gallery-cap data-i18n="g1">Visão da sala, tema escuro</span> · <span data-i18n="zoomHint">Clique para ampliar</span></figcaption>
           </figure>
         </button>
       </div>
@@ -300,7 +288,7 @@
     </div>
   </section>
 
-  <section class="section" id="perguntas" style="background:var(--bg-2)">
+  <section class="section" id="perguntas">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="faqKicker">Perguntas</p>
