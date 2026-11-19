@@ -8,3 +8,5 @@ Site estático de apresentação do [AulaView](https://aulaview.danielpro.dev), 
 - Os ficheiros em `/downloads/` são publicados à parte e não entram neste repositório
 
 Desenvolvido por [Danielpro](https://danielpro.dev).
+
+<!-- dots-auto-merge test (Grok Bot, 2026-11-19) -->
