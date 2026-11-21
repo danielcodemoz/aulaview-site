@@ -407,3 +407,8 @@ html.light .dl-agent {
   html { scroll-behavior: auto; }
   .hero-frame, .timeline li, .name-aula { animation: none; transform: none; }
 }
+
+.contact-lead { max-width: 640px; }
+.contact-list { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; max-width: 640px; }
+.contact-list li { color: var(--muted); font-size: 16px; }
+.contact-list a { color: var(--text); font-weight: 620; text-decoration: underline; text-underline-offset: 3px; }
