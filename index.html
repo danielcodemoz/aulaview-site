@@ -299,6 +299,57 @@
     </div>
   </section>
 
+  <section class="installer-safety" id="seguranca-windows" aria-labelledby="installer-safety-title">
+    <div class="wrap">
+      <p class="eyebrow" data-i18n="safetyKicker">Guia de segurança · Windows</p>
+      <h2 id="installer-safety-title" data-i18n="safetyTitle">Antes de executar o instalador</h2>
+      <div class="installer-safety-grid">
+        <div class="installer-safety-copy">
+          <p data-i18n="safetyIntro">Se o Microsoft Edge indicar que o ficheiro não é descarregado com frequência, significa que ainda não tem uma reputação estabelecida. Não significa que o ficheiro seja seguro. O Windows pode mostrar um aviso separado ao abrir o ficheiro.</p>
+          <ol>
+            <li data-i18n="safetyStart">Na página oficial, confirme o domínio e clique em «Descarregar para Windows» (ou no botão do instalador Windows escolhido).</li>
+            <li data-i18n="safetyOrigin">Só se o Edge disser que o ficheiro não é transferido com frequência: confirme o domínio oficial, o nome exacto do ficheiro e a versão esperada. A página oficial deve publicar um SHA-256 para esse ficheiro. Se não publicar, pare. Domínio oficial: aulaview.danielpro.dev.</li>
+            <li data-i18n="safetySave">Nas Transferências do Edge, abra o menu ⋯ do ficheiro e escolha Manter (Keep). Em seguida, abra a seta junto de Eliminar (Delete) e escolha Manter mesmo assim (Keep anyway). Isto só guarda o ficheiro. Não clique em «Abrir ficheiro».</li>
+            <li data-i18n="safetySignature">Se houver assinatura digital, confirme nas propriedades do ficheiro que é válida e que pertence ao editor esperado. «Editor desconhecido» não confirma a identidade do editor.</li>
+            <li><span data-i18n="safetyHash">Se já tiver o ficheiro, abra o PowerShell na pasta onde o guardou. Substitua instalador.exe pelo nome exacto do ficheiro e compare o resultado com o SHA-256 publicado no cartão correspondente. A coincidência confirma que os ficheiros são idênticos, não que sejam seguros.</span>
+              <code class="installer-command" data-i18n="safetyCommand">Get-FileHash -LiteralPath '.\instalador.exe' -Algorithm SHA256</code>
+              <a href="#transferir" data-i18n="safetyHashes">Ver os valores SHA-256</a>
+            </li>
+          </ol>
+          <p class="installer-stop" data-i18n="safetyStop">Se não puder verificar a origem ou o ficheiro, o SHA-256 for diferente ou houver um aviso de perigo, de malware ou um bloqueio por política ou pelo administrador, não prossiga nem execute. Mantenha as protecções activas. Num computador da escola, contacte o responsável de TI.</p>
+        </div>
+        <figure class="installer-figure">
+          <div class="installer-window" lang="en" aria-hidden="true">
+            <div class="installer-chrome">
+              <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="3"/><path d="M3 9h18M6.5 6.6h.1m3 0h.1"/></svg>
+              <span>Microsoft Edge example</span>
+            </div>
+            <div class="installer-window-body">
+              <p class="installer-downloads-label">Downloads</p>
+              <div class="installer-warning">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M11 4.6a1.2 1.2 0 0 1 2 0l8.2 14a1.2 1.2 0 0 1-1 1.9H3.8a1.2 1.2 0 0 1-1-1.9L11 4.6Z"/><path d="M12 9v5m0 3h.01"/></svg>
+                <div>
+                  <strong>This file isn’t commonly downloaded</strong>
+                  <p>Publisher: Unknown</p>
+                </div>
+              </div>
+              <ol class="installer-demo-steps" aria-hidden="true">
+                <li><span>01</span><strong>Download for Windows</strong></li>
+                <li><span>02</span><strong>⋯ File menu</strong></li>
+                <li><span>03</span><strong>Keep</strong></li>
+                <li><span>04</span><strong>Arrow beside Delete</strong></li>
+                <li><span>05</span><strong>Keep anyway</strong></li>
+              </ol>
+            </div>
+          </div>
+          <figcaption><span data-i18n="safetyCaption">Simulação: guardar o ficheiro sem o executar.</span>
+            <button type="button" class="installer-motion" data-installer-motion hidden data-i18n="safetyPlay">Reproduzir animação</button>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <section class="band" id="perguntas">
     <div class="wrap">
       <p class="eyebrow" data-i18n="faqKicker">Perguntas</p>
@@ -307,7 +358,7 @@
         <details><summary data-i18n="q1">Preciso de internet ou de um servidor na nuvem?</summary><p data-i18n="a1">Não. O PC do professor é o servidor. Os computadores da sala falam com a consola na rede local, na porta TCP 19544. Não há PHP, base de dados nem serviço na nuvem.</p></details>
         <details><summary data-i18n="q2">Que Windows é necessário?</summary><p data-i18n="a2">Windows 10 ou posterior, de 64 bits, tanto no PC do professor como nos PCs dos alunos. O instalador do agente recusa um Windows de 32 bits ou anterior ao Windows 10.</p></details>
         <details><summary data-i18n="q3">Para quantos computadores serve?</summary><p data-i18n="a3">Foi feito para uma sala de informática. A versão 1.4.0 acompanha uma turma na casa dos 22 PCs, e o teste de carga usou 25 computadores simulados.</p></details>
-        <details><summary data-i18n="q4">Os instaladores têm assinatura digital?</summary><p data-i18n="a4">Ainda não. O SmartScreen do Windows pode mostrar «O Windows protegeu o seu PC». Em Mais informações pode escolher Executar mesmo assim. Confira o SHA-256 publicado nesta página.</p></details>
+        <details><summary data-i18n="q4">Os instaladores têm assinatura digital?</summary><p data-i18n="a4">Os instaladores publicados não têm assinatura digital. Se vir um aviso no Edge ou no Windows, consulte o guia de segurança acima. Não execute um ficheiro marcado como perigoso ou que não possa verificar.</p></details>
         <details><summary data-i18n="q5">Como confirmo que o instalador é o da versão 1.4.0?</summary><p data-i18n="a5">Os dois ficheiros estão em /downloads/. Compare o SHA-256 do ficheiro descarregado com o valor nesta página.</p></details>
         <details><summary data-i18n="q6">O aluno consegue sair com Ctrl+Alt+Del?</summary><p data-i18n="a6">Sim. Nenhum programa normal consegue bloquear Ctrl+Alt+Del. O bloqueio cobre o ecrã e o teclado e o rato, e o Windows mantém essa combinação.</p></details>
         <details><summary data-i18n="q7">Onde ficam os trabalhos dos alunos?</summary><p data-i18n="a7">Na consola, os envios pela janela de entrega ficam agrupados por PC. A recolha e o envio verificam o SHA-256. Cada ficheiro pode ter no máximo 64 MB.</p></details>

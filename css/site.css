@@ -460,3 +460,127 @@ html.light .contact-ico { color: white; }
   .contact-card:hover { transform: none; }
 }
 
+
+/* Windows installer safety guide */
+.installer-safety {
+  padding: clamp(36px, 7vw, 90px) 0;
+  scroll-margin-top: var(--header-h);
+}
+.installer-safety-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+  margin-top: 20px;
+}
+.installer-safety-copy p { color: var(--text-2); }
+.installer-safety-copy ol { padding-inline-start: 1.3em; }
+.installer-safety-copy li { margin-block: 0 12px; color: var(--text-2); }
+.installer-safety-copy li::marker { color: var(--accent); font-weight: 700; }
+.installer-command {
+  display: block;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+  margin: 10px 0;
+  padding: 9px 12px;
+  font-size: .86em;
+}
+.installer-safety-copy .installer-stop {
+  border-inline-start: 3px solid var(--warn);
+  padding-inline-start: 12px;
+  font-weight: 600;
+}
+.installer-figure { min-width: 0; margin: 0; }
+.installer-window {
+  color-scheme: light;
+  --surface: #ffffff;
+  --surface-2: #eef4f1;
+  --text: #23372f;
+  --muted: #4f6158;
+  --accent: #126656;
+  --border: #bacfc4;
+  --warn: #956000;
+  --shadow: 0 12px 34px rgb(16 37 29 / .18);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.installer-chrome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  color: var(--accent);
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  font-size: .9rem;
+  font-weight: 700;
+}
+.installer-chrome svg, .installer-warning svg { flex-shrink: 0; }
+.installer-window-body {
+  background: radial-gradient(ellipse at 25% 8%, rgb(20 184 166 / .12), transparent 70%);
+  padding: clamp(14px, 3vw, 32px);
+}
+.installer-downloads-label { margin: 0 0 12px; font-weight: 700; }
+.installer-warning {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--warn);
+  border-radius: 12px;
+}
+.installer-warning svg { color: var(--warn); }
+.installer-warning p { margin: 5px 0 0; color: var(--muted); font-size: .9rem; }
+.installer-figure figcaption { color: var(--muted); font-size: .9rem; padding-top: 12px; }
+.installer-motion {
+  display: block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  color: var(--accent);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.installer-motion[hidden] { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .installer-figure.is-ready .installer-warning {
+    animation: installer-highlight 2.4s var(--ease) infinite;
+  }
+  .installer-figure.is-paused .installer-warning { animation-play-state: paused; }
+}
+@keyframes installer-highlight {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  45% { box-shadow: 0 0 0 5px rgb(251 191 36 / .24); }
+}
+@media (max-width: 760px) {
+  .installer-safety-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.installer-demo-steps { display: grid; gap: 8px; padding: 0; margin: 14px 0 0; list-style: none; }
+.installer-demo-steps li {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start;
+  padding: 8px 10px; background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: 10px; font-size: .9rem; overflow-wrap: anywhere;
+}
+.installer-demo-steps li span { color: var(--accent); font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: no-preference) {
+  .installer-figure.is-ready .installer-demo-steps li { animation: installer-step 10s ease infinite; }
+  .installer-figure.is-ready .installer-demo-steps li:nth-child(2) { animation-delay: 2s; }
+  .installer-figure.is-ready .installer-demo-steps li:nth-child(3) { animation-delay: 4s; }
+  .installer-figure.is-ready .installer-demo-steps li:nth-child(4) { animation-delay: 6s; }
+  .installer-figure.is-ready .installer-demo-steps li:nth-child(5) { animation-delay: 8s; }
+  .installer-figure.is-paused .installer-demo-steps li { animation-play-state: paused; }
+}
+@keyframes installer-step {
+  0%, 21%, 100% { border-color: var(--border); }
+  4%, 16% { border-color: var(--accent); }
+}

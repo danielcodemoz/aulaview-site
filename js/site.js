@@ -4,6 +4,20 @@
 
   const dict = {
     pt: {
+      safetyKicker: "Guia de segurança · Windows",
+      safetyTitle: "Antes de executar o instalador",
+      safetyIntro: "Se o Microsoft Edge indicar que o ficheiro não é descarregado com frequência, significa que ainda não tem uma reputação estabelecida. Não significa que o ficheiro seja seguro. O Windows pode mostrar um aviso separado ao abrir o ficheiro.",
+      safetyStart: "Na página oficial, confirme o domínio e clique em «Descarregar para Windows» (ou no botão do instalador Windows escolhido).",
+      safetyOrigin: "Só se o Edge disser que o ficheiro não é transferido com frequência: confirme o domínio oficial, o nome exacto do ficheiro e a versão esperada. A página oficial deve publicar um SHA-256 para esse ficheiro. Se não publicar, pare. Domínio oficial: aulaview.danielpro.dev.",
+      safetySignature: "Se houver assinatura digital, confirme nas propriedades do ficheiro que é válida e que pertence ao editor esperado. «Editor desconhecido» não confirma a identidade do editor.",
+      safetyHash: "Se já tiver o ficheiro, abra o PowerShell na pasta onde o guardou. Substitua instalador.exe pelo nome exacto do ficheiro e compare o resultado com o SHA-256 publicado no cartão correspondente. A coincidência confirma que os ficheiros são idênticos, não que sejam seguros.",
+      safetyStop: "Se não puder verificar a origem ou o ficheiro, o SHA-256 for diferente ou houver um aviso de perigo, de malware ou um bloqueio por política ou pelo administrador, não prossiga nem execute. Mantenha as protecções activas. Num computador da escola, contacte o responsável de TI.",
+      safetyHashes: "Ver os valores SHA-256",
+      safetyCaption: "Simulação: guardar o ficheiro sem o executar.",
+      safetySave: "Nas Transferências do Edge, abra o menu ⋯ do ficheiro e escolha Manter (Keep). Em seguida, abra a seta junto de Eliminar (Delete) e escolha Manter mesmo assim (Keep anyway). Isto só guarda o ficheiro. Não clique em «Abrir ficheiro».",
+      safetyPlay: "Reproduzir animação",
+      safetyPause: "Pausar animação",
+      safetyCommand: "Get-FileHash -LiteralPath '.\\instalador.exe' -Algorithm SHA256",
       skip: "Saltar para o conteúdo",
       navFeatures: "Funcionalidades",
       navOrigin: "Origem",
@@ -155,7 +169,7 @@
       q3: "Para quantos computadores serve?",
       a3: "Foi feito para uma sala de informática. A versão 1.4.0 acompanha uma turma na casa dos 22 PCs, e o teste de carga usou 25 computadores simulados.",
       q4: "Os instaladores têm assinatura digital?",
-      a4: "Ainda não. O SmartScreen do Windows pode mostrar «O Windows protegeu o seu PC». Em Mais informações pode escolher Executar mesmo assim. Confira o SHA-256 publicado nesta página.",
+      a4: "Os instaladores publicados não têm assinatura digital. Se vir um aviso no Edge ou no Windows, consulte o guia de segurança acima. Não execute um ficheiro marcado como perigoso ou que não possa verificar.",
       q5: "Como confirmo que o instalador é o da versão 1.4.0?",
       a5: "Os dois ficheiros estão em /downloads/. Compare o SHA-256 do ficheiro descarregado com o valor nesta página.",
       q6: "O aluno consegue sair com Ctrl+Alt+Del?",
@@ -175,6 +189,20 @@
       footTop: "Voltar ao topo"
     },
     en: {
+      safetyKicker: "Windows safety guide",
+      safetyTitle: "Before you run the installer",
+      safetyIntro: "If Microsoft Edge says the file isn't commonly downloaded, it means the file doesn't have an established reputation. It doesn't mean the file is safe. Windows can show a separate warning when you open the file.",
+      safetyStart: "On the official page, confirm the domain and click “Download for Windows” (or the button for your chosen Windows installer).",
+      safetyOrigin: "Only if Edge says the file isn’t commonly downloaded: confirm the official domain, exact filename and expected version. The official page must publish a SHA-256 for that exact file. If it does not, stop. Official domain: aulaview.danielpro.dev.",
+      safetySignature: "If the file has a digital signature, check in its properties that it is valid and belongs to the expected publisher. “Unknown publisher” does not confirm who published it.",
+      safetyHash: "If you already have the file, open PowerShell in the folder where you saved it. Replace installer.exe with the exact filename and compare the result with the SHA-256 shown on the matching download card. A match confirms the files are identical, not that they are safe.",
+      safetyStop: "If you cannot verify the source or file, the SHA-256 differs, or there is an unsafe-file or malware warning or a policy or administrator block, stop and do not run the file. Keep protections enabled. On a school computer, contact your IT administrator.",
+      safetyHashes: "View the SHA-256 values",
+      safetyCaption: "Simulation: save the file without running it.",
+      safetySave: "In Edge Downloads, open the file’s ⋯ menu and choose Keep. Next, open the arrow beside Delete and choose Keep anyway. This only saves the file. Do not click “Open file”.",
+      safetyPlay: "Play animation",
+      safetyPause: "Pause animation",
+      safetyCommand: "Get-FileHash -LiteralPath '.\\installer.exe' -Algorithm SHA256",
       skip: "Skip to content",
       navFeatures: "Features",
       navOrigin: "The name",
@@ -326,7 +354,7 @@
       q3: "How many computers does it cover?",
       a3: "It is made for one computer lab. Version 1.4.0 follows a class of about 22 PCs, and the load test used 25 simulated computers.",
       q4: "Are the installers digitally signed?",
-      a4: "Not yet. Windows SmartScreen may say “Windows protected your PC”. Under More info you can choose Run anyway. Check the SHA-256 published on this page.",
+      a4: "The published installers are not digitally signed. If you see a warning in Edge or Windows, read the safety guide above. Do not run a file flagged as unsafe or that you cannot verify.",
       q5: "How do I confirm the installer is version 1.4.0?",
       a5: "Both files are in /downloads/. Compare the SHA-256 of the downloaded file with the value on this page.",
       q6: "Can a student leave with Ctrl+Alt+Del?",
@@ -384,6 +412,7 @@
     if (ogd) ogd.setAttribute("content", desc);
     if (ogl) ogl.setAttribute("content", lang === "pt" ? "pt_MZ" : "en_US");
     applyTheme();
+    syncInstallerMotion();
     if (window.__avDownloads) renderDownloads(window.__avDownloads);
   }
 
@@ -644,6 +673,27 @@
     } catch {
       if (root) root.innerHTML = `<p class="note">${t("dlMissing")}</p>`;
     }
+  }
+
+  const installerMotion = document.querySelector("[data-installer-motion]");
+  const installerFigure = installerMotion?.closest(".installer-figure");
+  const prefersReducedInstallerMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  function syncInstallerMotion() {
+    if (!installerMotion || !installerFigure) return;
+    const playing = !prefersReducedInstallerMotion.matches && !installerFigure.classList.contains("is-paused");
+    installerMotion.hidden = prefersReducedInstallerMotion.matches;
+    installerMotion.dataset.i18n = playing ? "safetyPause" : "safetyPlay";
+    installerMotion.textContent = t(installerMotion.dataset.i18n);
+  }
+  installerMotion?.addEventListener("click", () => {
+    installerFigure.classList.toggle("is-paused");
+    syncInstallerMotion();
+  });
+  prefersReducedInstallerMotion.addEventListener("change", syncInstallerMotion);
+  if (installerFigure && "IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => {
+      installerFigure.classList.toggle("is-ready", entry.isIntersecting && entry.intersectionRatio >= 0.4);
+    }, { threshold: 0.4 }).observe(installerFigure);
   }
 
   applyLang();
